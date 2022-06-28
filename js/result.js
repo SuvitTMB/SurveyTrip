@@ -78,7 +78,7 @@ function Donus1() {
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["ประเทศ", "Density", { role: "style" } ],
-        ["จอร์เจีย-ตุรกี", Group11, "#0057ff"],
+        ["จอร์เจีย-ตุรเคีย", Group11, "#0057ff"],
         ["ออสเตรีย", Group12, "#f68b1f"],
         ["ดูไบ", Group13, "color: #002d63"]
       ]);
