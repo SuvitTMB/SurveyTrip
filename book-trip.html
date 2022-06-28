@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/radio.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background: #f68b1f;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="ba-trip.html" style="font-size:12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="Loading" class="carousel slide text-center" data-ride="carousel" style="display: block;">
+    <div style="margin:200px auto;" id="loading"><img src="./img/loading.gif">
+      <div style="padding-top:15px;color:#f68b1f;">L o a d i n g</div>
+    </div>
+  </div>
+
+<!--
+  <session id="StopApp" style="display: none;">
+    <div class="row">
+      <center>
+        <div class="font-4h" style="padding:70px 0px 10px 0px;">
+          <div class="font-4h" style="font-size: 15px; color:#0056ff;"></div>
+        </div>
+        <div style="margin-top:20px;"><img src="./img/stop.png" style="max-width: 280px"></div>
+        <div style="margin-top:30px; width:90%">
+          <div class="text-home" style="color:#002d63;">คุณไม่ได้รับสิทธิ์</div>
+          <div class="text-home"><b>ในการตอบแบบสอบถามนี้</b></div>
+        </div>
+      </center>
+    </div>
+  </session>
+-->
+
+  <session id="WelcomeTrip" style="display: none;">
+    <div class="container" style="max-width:360px; margin:70px auto 10px auto;">
+      <div><img src="./img/intro.png" style="width:100%;"></div>
+      <center>
+        <div class="text-title">
+        แบบสำรวจนี้จัดทำขึ้นเพื่อเป็นการสำรวจความต้องการ<br>ของพนักงานที่ต้องการไปท่องเที่ยวต่างประเทศใดมากที่สุด<br>โดยประเทศที่ได้รับการโหวตสูงสุดจะใช้เป็นแคมเปญของ<br>กิจกรรมเพื่อนำพนักงานไปท่องเที่ยวในประเทศนั้น ๆ ต่อไป</div>
+        <div class="btn-t1" style="margin-top:20px;" onclick="CheckTripPrudential()">ร่วมโหวตเลือกประเทศ<br>ที่คุณอยากไปเที่ยวมากที่สุด</div>
+      </center>
+    </div>
+  </session>
+
+
+  <session id="ShowTrip" style="display: none;">
+
+    <div class="container" style="max-width:550px; margin:70px auto 10px auto;width:100%;">
+      <center>
+        <div class="btn-t9">โหวตเลือกประเทศไหนที่คุณอยากไปเที่ยวมากที่สุด</div>
+      </center>
+    </div>
+
+
+    <div><center><img src="./img/introQ1.png" style="width: 100%;max-width: 550px;"></center></div>
+    <div class="container" style="max-width:550px; width:100%;margin-top:20px;">
+      <label class="quiz-choice" id="1">
+        <input type="radio" name="Q1" value="1" onclick="buttonQ1(1)">
+        <img src="./img/png-1.png" style="width:50px;padding-top:5px;"><div class="quiz-text" id="Group11"></div>
+      </label>
+      <label class="quiz-choice" id="2" >
+        <input type="radio" name="Q1" value="2" onclick="buttonQ1(2)">
+        <img src="./img/png-2.png" style="width:50px;padding-top:5px;"><div class="quiz-text" id="Group12"></div>
+      </label>
+      <label class="quiz-choice" id="3">
+        <input type="radio" name="Q1" value="3" onclick="buttonQ1(3)">
+        <img src="./img/png-3.png" style="width:50px;padding-top:5px;"><div class="quiz-text" id="Group13">></div>
+      </label>
+      <div class="text-contury">เลือกประเทศที่ต้องการ</div>
+    </div>
+
+
+    <div><center><img src="./img/introQ2.png" style="margin-top:50px;width: 100%;max-width: 550px;"></center></div>
+    <div class="container" style="max-width:400px;width:100%;margin-top:20px;">
+      <label class="quiz-choice" id="21">
+        <input type="radio" name="Q2" value="1" onclick="buttonQ2(1)">
+        <img src="./img/png-1.png" style="width:50px;padding-top:5px;"><div class="quiz-text" id="Group21"></div>
+      </label>
+      <label class="quiz-choice" id="22" >
+        <input type="radio" name="Q2" value="2" onclick="buttonQ2(2)">
+        <img src="./img/png-2.png" style="width:50px;padding-top:5px;"><div class="quiz-text" id="Group22"></div>
+      </label>
+      <label class="quiz-choice" id="23">
+        <input type="radio" name="Q2" value="3" onclick="buttonQ2(3)">
+        <img src="./img/png-3.png" style="width:50px;padding-top:5px;"><div class="quiz-text" id="Group23"></div>
+      </label>
+      <div class="text-contury">เลือกประเทศที่ต้องการ</div>
+    </div>
+    <center>
+      <div class="btn-t0" style="margin-top:20px;" onclick="SendAnswer()" id="SendAns">คลิกยืนยันการตัดสินใจ</div>
+      <!--<div class="EndSelect">คุณสามารถเลือกตัดสินใจได้เพียงครั้งเดียว<br>และจะไม่สามารถยกเลิกรายการที่เลือกได้</div>-->
+    </center>
+  </session>
+
+
+
+  <session id="ShowResult" style="display: none;">
+    <div class="container" style="max-width:340px; margin:60px auto 10px auto;">
+      <div style="margin-top:5px; text-align: center;">
+        <div id="MyProfile1"></div>
+        <div id="DisplayResultTrip"></div>
+      </div>
+    </div>
+  </session>
+
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+  <div style="font-size:12px;font-weight: 600;margin-top:-10px;">
+    <font color="green">LINE</font> <font color="#002d63">Retail</font> 
+    <font color="#0056ff">So</font><font color="#ffffff">ciety</font>
+  </div>
+</footer>
+
+
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayResult"></div>
+        <div class="btn-t0" onclick="CloseAll()" style="margin-top:20px;color:#fff;">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+  <div class="clr" style="height: 30px;"></div>
+</div>
+
+
+<script src="./js/book-trip.js"></script>
+
+
+</body>
+</html>
