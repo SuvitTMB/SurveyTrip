@@ -299,7 +299,7 @@ h1, h2, h3, h4, h5, h6 {
   margin:15px; line-height: 1.2; color:#ff0000; text-align: center;
 }
 .text-name {
-  font-size: 11px; color:#fff; line-height: 1.3; margin-top:10px; 
+  font-size: 11px; color:#f68b1f; line-height: 1.3; margin-top:10px; font-weight: 600;
 }
 .add-profile {
   height: 110px; border-radius: 50%; 
@@ -325,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   border-radius: 7px;
   cursor: pointer;
-  background-color: #fbf7f3;  
+  background-color: #a3b8d5;  
   color:#0056ff;
   font-weight: 600;
   font-size: 11px;
@@ -353,4 +353,10 @@ input[type="radio"] {
 }
 .text-title {
   color:#000000; font-size: 11px;margin-top:20px;font-weight: 300;line-height: 1.4;
+}
+.box-flad {
+  width:45px;margin:15px 5px 8px 5px; border:2px solid #fff;
+}
+.box-flad1 {
+  width:60px;margin:15px 5px 5px 5px; border:2px solid #fff;
 }
