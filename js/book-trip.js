@@ -10,7 +10,8 @@ var Type13 = "ดูไบ";
 var Type21 = "ไต้หวัน";
 var Type22 = "เวียดนาม";
 var Type23 = "เกาหลี";
-
+var Flag1 = "";
+var Flag2 = "";
 
 $(document).ready(function () {
 	if(sessionStorage.getItem("LineID")==null) { location.href = 'ba-trip.html'; }
@@ -79,24 +80,35 @@ function CheckTripPrudential() {
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
 		Eid = doc.id;
-		//sessionStorage.setItem("EmpName", doc.data().EmpName);
-		//sessionStorage.setItem("EmpPosition", doc.data().EmpPosition);
-		//sessionStorage.setItem("EmpBranch", doc.data().EmpBranch);
-		//sessionStorage.setItem("EmpZone", doc.data().EmpZone);
-		//sessionStorage.setItem("EmpRH", doc.data().EmpRH);
-		//sessionStorage.setItem("ConfirmTrip", doc.data().ConfirmTrip);
+		if(doc.data().ConfirmQ1==1) {
+			Flag1 = '<div><img src="./img/G12.jpg" class="box-flad1"><img src="./img/G11.jpg" class="box-flad1"></div>';
+		} else if(doc.data().ConfirmQ1==2) {
+			Flag1 = '<div><img src="./img/G13.jpg" class="box-flad1"></div>';
+		} else if(doc.data().ConfirmQ1==3) {
+			Flag1 = '<div><img src="./img/G14.jpg" class="box-flad1"></div>';
+		}
+		if(doc.data().ConfirmQ2==1) {
+			Flag2 = '<div><img src="./img/G21.jpg" class="box-flad1"></div>';
+		} else if(doc.data().ConfirmQ2==2) {
+			Flag2 = '<div><img src="./img/G22.jpg" class="box-flad1"></div>';
+		} else if(doc.data().ConfirmQ2==3) {
+			Flag2 = '<div><img src="./img/G23.jpg" class="box-flad1"></div>';
+		}
 		if(doc.data().ConfirmQ1==0) {
 			document.getElementById('Loading').style.display='none';
 			document.getElementById('WelcomeTrip').style.display='none';
 			document.getElementById('ShowTrip').style.display='block';
 			document.getElementById('ShowResult').style.display='none';
 		} else {
+			console.log(Flag1,Flag2);
 			str += '<div class="btn-t9" style="margin-top:10px;cursor: none;">ข้อมูลการโหวตประเทศของคุณ</div>';
 			str += '<div style="margin-top:15px;"><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
 			str += '<div class="text-name"><b>'+ sessionStorage.getItem("EmpName_Trip") +'</b></div>';
-			str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div>กลุ่มที่ 1 (ประเทศที่เลือก)</div>';
+			str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div style="font-size:11px;">กลุ่มที่ 1 (ประเทศที่คุณเลือก)</div>';
+			str += Flag1;
 			str += '<div class="btn-t9" style="cursor: default;">'+doc.data().SelectQ1+'</div></div>';
-			str += '<div class="btn-t8" style="margin:25px auto;"><div>กลุ่มที่ 2 (ประเทศที่เลือก)</div>';
+			str += '<div class="btn-t8" style="margin:25px auto;"><div style="font-size:11px;">กลุ่มที่ 2 (ประเทศที่คุณเลือก)</div>';
+			str += Flag2;
 			str += '<div class="btn-t9" style="cursor: default;">'+doc.data().SelectQ2+'</div></div>';
 			str += '<div class="text-contury" style="margin-top:-25px;">ทำรายการเมื่อ : '+doc.data().DateConfirm+'</div>';
 			document.getElementById('Loading').style.display='none';
@@ -107,26 +119,8 @@ function CheckTripPrudential() {
 		}
     });
     if(Eid=="") {
-/*
-	    dbTripPrudential.add({
-			LineID : sessionStorage.getItem("LineID"),
-			LineName : sessionStorage.getItem("LineName"),
-			LinePicture : sessionStorage.getItem("LinePicture"),
-			EmpID : parseFloat(sessionStorage.getItem("EmpID_Trip")),
-			EmpName : sessionStorage.getItem("EmpName_Trip"),
-			//ConfirmTrip : parseInt(sSendAnswer),
-			ConfirmQ1 : 0,
-			ConfirmQ2 : 0,
-			SelectQ1 : "",
-			SelectQ2 : "",
-			DateConfirm : "",
-			DateTimeStamp : ""
-	    });
-*/
-	    //console.log("AddNew="+Eid);
 		document.getElementById('WelcomeTrip').style.display='none';
 		document.getElementById('ShowTrip').style.display='block';
-		//CheckTripPrudential();
     }
   });
 }
@@ -183,17 +177,23 @@ function SendAnswer() {
 	} else {
 		if(CheckQ1==1) {
 			NameSelectQ1 = Type11;
+			Flag1 = '<div><img src="./img/G12.jpg" class="box-flad1"><img src="./img/G11.jpg" class="box-flad1"></div>';
 		} else if(CheckQ1==2) {
 			NameSelectQ1 = Type12;
+			Flag1 = '<div><img src="./img/G13.jpg" class="box-flad1"></div>';
 		} else if(CheckQ1==3) {
 			NameSelectQ1 = Type13;
+			Flag1 = '<div><img src="./img/G14.jpg" class="box-flad1"></div>';
 		}
 		if(CheckQ2==1) {
 			NameSelectQ2 = Type21;
+			Flag2 = '<div><img src="./img/G21.jpg" class="box-flad1"></div>';
 		} else if(CheckQ2==2) {
 			NameSelectQ2 = Type22;
+			Flag2 = '<div><img src="./img/G22.jpg" class="box-flad1"></div>';
 		} else if(CheckQ2==3) {
 			NameSelectQ2 = Type23;
+			Flag2 = '<div><img src="./img/G23.jpg" class="box-flad1"></div>';
 		}
 
 		dbTripPrudential.doc(Eid).update({
@@ -213,9 +213,11 @@ function SendAnswer() {
 		str += '<div class="btn-t9" style="margin-top:10px;cursor: none;">ยืนยันการทำรายการของคุณ</div>';
 		str += '<div style="margin-top:15px;"><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
 		str += '<div class="text-name" style="color:#0056ff;"><b>'+ sessionStorage.getItem("EmpName_Trip") +'</b></div>';
-		str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div>กลุ่มที่ 1 (ประเทศที่เลือก)</div>';
+		str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div style="font-size:11px;">กลุ่มที่ 1 (ประเทศที่คุณเลือก)</div>';
+		str += Flag1;
 		str += '<div class="btn-t9" style="cursor: default;">'+NameSelectQ1+'</div></div>';
-		str += '<div class="btn-t8" style="margin:25px auto;"><div>กลุ่มที่ 2 (ประเทศที่เลือก)</div>';
+		str += '<div class="btn-t8" style="margin:25px auto;"><div style="font-size:11px;">กลุ่มที่ 2 (ประเทศที่คุณเลือก)</div>';
+		str += Flag2;
 		str += '<div class="btn-t9" style="cursor: default;">'+NameSelectQ2+'</div></div>';
 		str += '<div class="text-contury" style="margin-top:-25px;">ทำรายการเมื่อ : '+dateString+'</div>';
 

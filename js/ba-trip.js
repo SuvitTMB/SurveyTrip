@@ -7,7 +7,7 @@ var CheckSurvey = 0;
 
 
 $(document).ready(function () {
-/*
+  /*
   var str = "";
   var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
   var sLineName = "Website";
@@ -19,7 +19,7 @@ $(document).ready(function () {
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
   Connect_DB();
-  */
+  */  
 
   main()
 });
@@ -110,7 +110,11 @@ function CheckNewSurvey() {
     snapshot.forEach(doc=> {
       CheckSurvey = 1;
       document.getElementById('loading').style.display='none';
-      document.getElementById('myTimer').style.display='block';
+      if(doc.data().ConfirmQ1!=0) {
+        document.getElementById('myTimer1').style.display='block';
+      } else {
+        document.getElementById('myTimer').style.display='block';
+      }
       //location.href = 'book-trip.html';
     });
     if(CheckSurvey==0) {
