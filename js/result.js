@@ -78,7 +78,7 @@ function Donus1() {
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["ประเทศ", "Density", { role: "style" } ],
-        ["จอร์เจีย-ตุรเคีย", Group11, "#0057ff"],
+        ["ตุรเคีย-จอร์เจีย", Group11, "#0057ff"],
         ["ออสเตรีย", Group12, "#f68b1f"],
         ["ดูไบ", Group13, "color: #002d63"]
       ]);
@@ -111,9 +111,9 @@ function Donus2() {
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["ประเทศ", "Density", { role: "style" } ],
-        ["ไต้หวัน", Group21, "#0057ff"],
-        ["เวียดนาม", Group22, "#f68b1f"],
-        ["เกาหลี", Group23, "color: #002d63"]
+        ["ปูซาน (เกาหลี)", Group21, "#0057ff"],
+        ["ไต้หวัน", Group22, "#f68b1f"],
+        ["เวียดนาม", Group23, "color: #002d63"]
       ]);
 
       var view = new google.visualization.DataView(data);

@@ -4,12 +4,12 @@ var CheckQ1 = 0;
 var CheckQ2 = 0;
 var NameSelectQ1 = "";
 var NameSelectQ2 = "";
-var Type11 = "จอร์เจีย-ตุรเคีย";
+var Type11 = "ตุรเคีย-จอร์เจีย";
 var Type12 = "ออสเตรีย";
 var Type13 = "ดูไบ";
-var Type21 = "ไต้หวัน";
-var Type22 = "เวียดนาม";
-var Type23 = "เกาหลี";
+var Type21 = "ปูซาน (เกาหลี)";
+var Type22 = "ไต้หวัน";
+var Type23 = "เวียดนาม";
 var Flag1 = "";
 var Flag2 = "";
 
