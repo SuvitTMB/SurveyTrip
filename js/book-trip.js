@@ -104,10 +104,10 @@ function CheckTripPrudential() {
 			str += '<div class="btn-t9" style="margin-top:10px;cursor: none;">ข้อมูลการโหวตประเทศของคุณ</div>';
 			str += '<div style="margin-top:15px;"><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
 			str += '<div class="text-name"><b>'+ sessionStorage.getItem("EmpName_Trip") +'</b></div>';
-			str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div style="font-size:11px;">กลุ่มที่ 1 (ประเทศที่คุณเลือก)</div>';
+			str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div style="font-size:11px;">INFINITE</div>';
 			str += Flag1;
 			str += '<div class="btn-t9" style="cursor: default;">'+doc.data().SelectQ1+'</div></div>';
-			str += '<div class="btn-t8" style="margin:25px auto;"><div style="font-size:11px;">กลุ่มที่ 2 (ประเทศที่คุณเลือก)</div>';
+			str += '<div class="btn-t8" style="margin:25px auto;"><div style="font-size:11px;">SIGNATURE</div>';
 			str += Flag2;
 			str += '<div class="btn-t9" style="cursor: default;">'+doc.data().SelectQ2+'</div></div>';
 			str += '<div class="text-contury" style="margin-top:-25px;">ทำรายการเมื่อ : '+doc.data().DateConfirm+'</div>';
@@ -213,10 +213,10 @@ function SendAnswer() {
 		str += '<div class="btn-t9" style="margin-top:10px;cursor: none;">ยืนยันการทำรายการของคุณ</div>';
 		str += '<div style="margin-top:15px;"><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
 		str += '<div class="text-name" style="color:#0056ff;"><b>'+ sessionStorage.getItem("EmpName_Trip") +'</b></div>';
-		str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div style="font-size:11px;">กลุ่มที่ 1 (ประเทศที่คุณเลือก)</div>';
+		str += '<div class="btn-t8" style="margin:35px auto 15px auto;background:#0056ff;"><div style="font-size:11px;">INFINITE</div>';
 		str += Flag1;
 		str += '<div class="btn-t9" style="cursor: default;">'+NameSelectQ1+'</div></div>';
-		str += '<div class="btn-t8" style="margin:25px auto;"><div style="font-size:11px;">กลุ่มที่ 2 (ประเทศที่คุณเลือก)</div>';
+		str += '<div class="btn-t8" style="margin:25px auto;"><div style="font-size:11px;">SIGNATURE</div>';
 		str += Flag2;
 		str += '<div class="btn-t9" style="cursor: default;">'+NameSelectQ2+'</div></div>';
 		str += '<div class="text-contury" style="margin-top:-25px;">ทำรายการเมื่อ : '+dateString+'</div>';
